@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Proposal Day ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top, #2b0036, #000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 30px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff5da2;
+      text-shadow: 0 0 20px rgba(255,93,162,0.8);
+      animation: heartbeat 2s infinite;
+    }
+
+    .name {
+      font-size: 3.5rem;
+      margin-top: 10px;
+      color: #ffd1e8;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      line-height: 1.9;
+      opacity: 0;
+      animation: reveal 2s ease forwards;
+      animation-delay: 1.5s;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #ff5da2, #ff8fcf);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(255,93,162,0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255,93,162,1);
+    }
+
+    .final {
+      display: none;
+      margin-top: 30px;
+      font-size: 2rem;
+      color: #ffe3f1;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes reveal {
+      to { opacity: 1; }
+    }
+
+    .hearts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: #ff5da2;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+    <h1>Happy Proposal Day</h1>
+    <div class="name">Harshita ❤️</div>
+
+    <div class="message">
+      I don’t believe in perfect moments.  
+      I believe in honest ones.  
+
+      <br><br>
+
+      Somewhere between conversations, silences, smiles, and chaos…  
+      you became my favorite thought.
+
+      <br><br>
+
+      So today, without drama or promises I can’t keep —  
+      I’m asking something real.
+
+      <br><br>
+
+      Will you walk with me,  
+      not just today,  
+      but through whatever comes next?
+    </div>
+
+    <button onclick="accept()">Yes, I will 💖</button>
+
+    <div class="final" id="finalText">
+      Then it’s settled.  
+      You & me — intentionally. 🌙
+    </div>
+  </div>
+
+  <script>
+    function accept() {
+      document.getElementById("finalText").style.display = "block";
+    }
+
+    const hearts = document.getElementById("hearts");
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      hearts.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+
+</body>
+</html>
